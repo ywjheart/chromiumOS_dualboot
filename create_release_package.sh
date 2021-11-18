@@ -1,6 +1,7 @@
 #!/bin/bash
 if ( ! test -z {,} ); then echo "Must be ran with \"bash\""; exit 1; fi
 if [ $(whoami) != "root" ]; then echo "Please run with this script with sudo"; exit 1; fi
+if [ ! -f ./rootc.img ]; then echo "put latest rootc.img to this directory first"; exit 1; fi
 
 build_package() {
   local target="$1"
@@ -74,7 +75,5 @@ main() {
   build_package $loopdevice
   losetup -d "$loopdevice"
 }
-
-if [ ! -f ./rootc.img ]; then echo "put latest rootc.img to this directory first"; exit 1; fi
 
 main
