@@ -1,8 +1,9 @@
 This project is meant to boot different chromiumOS based distros, tested with Cloudready, FydeOS, Wayne OS. Suggest to use Brunch project to boot your system if your system satisfies its system requirements, try this project only if:
 1. You have a nVidia GPU, you want to dual boot with cloudready, wayneOS.
-2. You want to try other ChromiumsOS based OS, other than ChromeOS.
+2. You want to try other ChromiumsOS based distros, other than ChromeOS.
 
-Comparing to brunch project, this project doesn't use ROOTC for extra logic, instead, this project carries out all modifications during installation. so NO ROOTC(save 1GB), no ROOTB(save 3GB). 
+Comparing to Brunch project, this project doesn't use ROOTC for extra logic, instead, this project carries out all modifications during installation. so NO ROOTC(save 1GB), no ROOTB(save 3GB). 
+Required to use chromeos-update.sh to update an existing installation.
 
 Usages:
 1. Shrink your current partition to make space for ChromiumOS. You can use Disk Management in Windows. or gparted in Linux.
@@ -29,13 +30,14 @@ replace 24 to your desired image size, the unit is gigabytes.
 
 Add a boot entry to your grub, or grub4win according the info on the screen.
 
-6. Use following commands to update an existing installation. Suggest to use it only for reinstalling or updating the same chromiumsOS distro. You may be unable to boot if update across different ChromiumOS distro, say, change from cloudready to wayneOS, or to fydeOS.
+6. Use following commands to update an existing installation. Suggest to use it only for reinstalling or updating the same chromiumsOS distro. You may be unable to boot if update across different ChromiumOS distros, say, change from cloudready to wayneOS, or to fydeOS.
 
 sudo bash chromeos-update.sh -src cloudready-free-92.4.45-64bit.bin -dst /media/ubuntu/Cloudready/cloudready.img
 
 Notes:
-1. The packages are from Brunch project v93. you can always replace them. 
-The patches are from Brunch project v93, most of them have been removed in order to remove ChromeOS compatibility (Brunch project is preferred). You may add back but require code view to make sure they are working (pay attention to /proc/version, /proc/cmdline).
+1. The files in the packages directory are from Brunch project v93. you can always replace them. 
+The files in the patches directory are from Brunch project v93, most of them have been removed in order to remove ChromeOS compatibility (Brunch project is preferred). You may add back but require code view to make sure they are working (pay attention to /proc/version, /proc/cmdline).
+You can use create_release_package.sh and latest rootc.img from Brunch project to create a latest package.
 
 2. Report issues here if you have problem on scripts provided by this project.
 Send feedback to Brunch project only if your hardware is not supported by current kernels, either 5.4 or 5.10.

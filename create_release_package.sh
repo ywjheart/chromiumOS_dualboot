@@ -55,7 +55,7 @@ build_package() {
     cp /var/rootc/$i ./out/
   done  
 
-  FILES2="chromeos-install.sh chromeos-update.sh samples.sh settings.cfg readme.md"
+  FILES2="chromeos-install.sh chromeos-update.sh settings.cfg readme.md samples.sh create_release_package.sh"
   for i in $FILES2
   do
     cp ./$i ./out/
@@ -75,6 +75,6 @@ main() {
   losetup -d "$loopdevice"
 }
 
-if [ ! -f ./rootc.img ]; then echo "download latest rootc.img to this directory first"; exit 1; fi
+if [ ! -f ./rootc.img ]; then echo "put latest rootc.img to this directory first"; exit 1; fi
 
 main
