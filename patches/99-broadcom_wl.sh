@@ -26,7 +26,7 @@ start on stopped udev-trigger-early
 
 script
 	modprobe cfg80211
-	insmod /lib/modules/$(cat /proc/version |  cut -d' ' -f3)/broadcom_wl.ko
+	insmod /lib/modules/$kernel_ver/broadcom_wl.ko
 end script
 INSMOD
 	if [ ! "$?" -eq 0 ]; then ret=$((ret + (2 ** 1))); fi

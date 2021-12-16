@@ -12,6 +12,10 @@ if [ ! -f $setting_file ]; then
 fi
 
 source $setting_file
+export kernel
+export kernel_ver
+export kernel_file
+export kernel_tar
 
 usage()
 {

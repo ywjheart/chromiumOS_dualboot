@@ -14,6 +14,10 @@ if [ ! -f $setting_file ]; then
 fi
 
 source $setting_file
+export kernel
+export kernel_ver
+export kernel_file
+export kernel_tar
 
 usage()
 {
@@ -22,7 +26,7 @@ usage()
 	echo "Usage: chromeos_install.sh [-s X] [-l] -src chromeos_recovery_image_path -dst destination"
 	echo "-src (source), --source (source)			ChromeOS recovery image"
 	echo "-dst (destination), --destination (destination)	Device (e.g. /dev/sda) or Disk image file (e.g. chromeos.img)"
-	echo "-s (disk image size), --size (disk image size)	Disk image output only: final image size in GB (default=5)"
+	echo "-s (disk image size), --size (disk image size)	Disk image output only: final image size in GB (default=7)"
 	echo "-h, --help					Display this menu"
 }
 
@@ -171,7 +175,7 @@ expand_state() {
   resize2fs -f $target
 }
 
-image_size=5
+image_size=7
 while [ $# -gt 0 ]; do
 	case "$1" in
 		-src | --source)
